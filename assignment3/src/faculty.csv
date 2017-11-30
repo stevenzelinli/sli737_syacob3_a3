@@ -1,0 +1,9 @@
+fac_id, fac_name, fac_admin_email
+0001,'Arts and Humanities','bhakala@uwo.ca'
+0002,'Engineering','kchilder@uwo.ca'
+0003,'Health Sciences'
+0004,'Information and Media Studies'
+0005,'Law'
+0006,'Music'
+0007,'Science','scibmsac@uwo.ca'
+0008,'Social Science','ssaco@uwo.ca'

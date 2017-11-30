@@ -1,0 +1,104 @@
+mysql> SELECT * FROM technical_electives_after_year1 LIMIT 10;
++---------+-----------+
+| prog_id | course_id |
++---------+-----------+
+|     100 |       198 |
+|      36 |       625 |
+|      19 |       682 |
+|      94 |       742 |
+|      40 |       224 |
+|       9 |        89 |
+|      10 |       455 |
+|      16 |       324 |
+|      10 |       156 |
+|      73 |       534 |
++---------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM course_taught_by LIMIT 10;
++-----------+------------------+--------+
+| course_id | teacher_name     | dep_id |
++-----------+------------------+--------+
+|         1 | Dulcine Tiddy    |     54 |
+|         2 | Brita Wildish    |     19 |
+|         3 | Goldarina Molan  |      6 |
+|         4 | Berthe Pine      |     16 |
+|         5 | Robinet Stormont |     51 |
+|         6 | Caz Harkus       |     29 |
+|         7 | Dulcine Linnane  |     51 |
+|         8 | Pepe Dickson     |     44 |
+|         9 | Roana Mithun     |     36 |
+|        10 | Vincents Berthel |     21 |
++-----------+------------------+--------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM admin_view
++---------------------+-----------------+------------------------------------------------+----------------------------+--------------------------------+
+| fac_name            | fac_admin_email | dep_name                                       | dep_admin_email            | prog_name                      |
++---------------------+-----------------+------------------------------------------------+----------------------------+--------------------------------+
+| Arts and Humanities | bhakala@uwo.ca  | Classical Studies                              | jfontelles0@feedburner.com | Prunes - Pitted                |
+| Arts and Humanities | bhakala@uwo.ca  | Classical Studies                              | jfontelles0@feedburner.com | Arctic Char - Fillets          |
+| Arts and Humanities | bhakala@uwo.ca  | English                                        | strevna1@issuu.com         | Wine - Delicato Merlot         |
+| Arts and Humanities | bhakala@uwo.ca  | English                                        | strevna1@issuu.com         | Pork - Backs - Boneless        |
+| Arts and Humanities | bhakala@uwo.ca  | Film Studies                                   | sweymont2@cbc.ca           | Pepper - Red Chili             |
+| Arts and Humanities | bhakala@uwo.ca  | Film Studies                                   | sweymont2@cbc.ca           | Loquat                         |
+| Arts and Humanities | bhakala@uwo.ca  | French Studies                                 | gheinemann3@ning.com       | Table Cloth 81x81 White        |
+| Arts and Humanities | bhakala@uwo.ca  | French Studies                                 | gheinemann3@ning.com       | Doilies - 8, Paper             |
+| Arts and Humanities | bhakala@uwo.ca  | French Studies                                 | gheinemann3@ning.com       | Savory                         |
+| Arts and Humanities | bhakala@uwo.ca  | Philosophy                                     | sflye6@a8.net              | Tart - Pecan Butter Squares    |
+| Arts and Humanities | bhakala@uwo.ca  | Visual Arts                                    | sheap7@blogspot.com        | Turnip - White                 |
+| Arts and Humanities | bhakala@uwo.ca  | Visual Arts                                    | sheap7@blogspot.com        | Ginger - Ground                |
+| Arts and Humanities | bhakala@uwo.ca  | Visual Arts                                    | sheap7@blogspot.com        | Squeeze Bottle                 |
+| Arts and Humanities | bhakala@uwo.ca  | Woman's Studies & Feminist Research            | hbroad8@oakley.com         | Browning Caramel Glace         |
+| Arts and Humanities | bhakala@uwo.ca  | Woman's Studies & Feminist Research            | hbroad8@oakley.com         | Doilies - 5, Paper             |
+| Arts and Humanities | bhakala@uwo.ca  | Writing, Rhetoric & Professional Communication | mproger9@quantcast.com     | Sauce - Plum                   |
+| Engineering         | kchilder@uwo.ca | Civil and Environmental Engineering            | fmcqueenb@newsvine.com     | Arizona - Plum Green Tea       |
+| Engineering         | kchilder@uwo.ca | Electrical and Computer Engineering            | rnixonc@xinhuanet.com      | Alize Gold Passion             |
+| Engineering         | kchilder@uwo.ca | Mechanical and Materials Engineering           | ctawd@mlb.com              | Garlic Powder                  |
+| Health Sciences     | NULL            | Communications Sciences and Disorders          | vcraigmylee@dot.gov        | Oil - Avocado                  |
+| Health Sciences     | NULL            | Communications Sciences and Disorders          | vcraigmylee@dot.gov        | Lemonade - Natural, 591 Ml     |
+| Health Sciences     | NULL            | Health and Rehabilitation Sciences             | mholburnf@ehow.com         | Rum - Spiced, Captain Morgan   |
+| Health Sciences     | NULL            | Health Studies                                 | sguielg@istockphoto.com    | Water - Green Tea Refresher    |
+| Health Sciences     | NULL            | Nursing                                        | rupsalei@1und1.de          | Soup Campbells - Tomato Bisque |
+| Health Sciences     | NULL            | Nursing                                        | rupsalei@1und1.de          | Salmon - Fillets               |
++---------------------+-----------------+------------------------------------------------+----------------------------+--------------------------------+
+
+mysql> INSERT INTO technical_electives_after_year1(prog_id,course_id) VALUES(1200,1900);
+ERROR 1423 (HY000): Field of view 'uwocoursesched.technical_electives_after_year1' underlying table doesn't have a default value
+
+mysql> describe technical_electives_after_year1;
++-----------+---------+------+-----+---------+-------+
+| Field     | Type    | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| prog_id   | int(11) | NO   |     | NULL    |       |
+| course_id | int(11) | NO   |     | NULL    |       |
++-----------+---------+------+-----+---------+-------+
+The base table course_slot doesn't have a primary key
+
+mysql> describe course_taught_by;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| course_id    | int(11)      | NO   |     | NULL    |       |
+| teacher_name | varchar(100) | NO   |     | NULL    |       |
+| dep_id       | int(11)      | NO   |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO course_taught_by(course_id,teacher_name,dep_id) VALUES(1200,"OUDA G",65);
+ERROR 1393 (HY000): Can not modify more than one base table through a join view 'uwocoursesched.course_taught_by'
+
+mysql> describe course_taught_by;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| course_id    | int(11)      | NO   |     | NULL    |       |
+| teacher_name | varchar(100) | NO   |     | NULL    |       |
+| dep_id       | int(11)      | NO   |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO course_taught_by(course_id,teacher_name,dep_id) VALUES(1200,"OUDA G",65);
+ERROR 1393 (HY000): Can not modify more than one base table through a join view 'uwocoursesched.course_taught_by'
+
+

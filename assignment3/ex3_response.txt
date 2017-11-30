@@ -1,0 +1,36 @@
+*AFTER THE FIRST INSERT*
+mysql> SELECT * FROM faculty;
++--------+----------+-----------------+
+| fac_id | fac_name | fac_admin_email |
++--------+----------+-----------------+
+|      0 | Science  | science@uwo.ca  |
++--------+----------+-----------------+
+1 row in set (0.00 sec)
+
+*AFTER THE SECOND INSERT*
+SELECT * FROM teacher;
++------------+--------+--------------+
+| teacher_id | fac_id | teacher_name |
++------------+--------+--------------+
+|          3 |      0 | Temp         |
++------------+--------+--------------+
+1 row in set (0.00 sec)
+
+*AFTER THE THIRD INSERT*
+mysql> SELECT * FROM faculty;
++--------+----------+-----------------+
+| fac_id | fac_name | fac_admin_email |
++--------+----------+-----------------+
+|      0 | Science  | science@uwo.ca  |
+|      3 | 0        | Temp            |
++--------+----------+-----------------+
+2 rows in set (0.00 sec)
+
+*AFTER THE FOURTH INSERT*
+mysql> SELECT * FROM teacher;
++------------+--------+--------------+
+| teacher_id | fac_id | teacher_name |
++------------+--------+--------------+
+|          4 |      0 | Temp         |
++------------+--------+--------------+
+1 row in set (0.00 sec)

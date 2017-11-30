@@ -1,0 +1,99 @@
+1:
+mysql> SELECT course_number, course_suffix FROM course WHERE lab_hours < 1.5 LIMIT 10;
++---------------+---------------+
+| course_number | course_suffix |
++---------------+---------------+
+|          2314 | G             |
+|          1746 | Y             |
+|          1587 | G             |
+|          3015 | G             |
+|          3250 | A             |
+|          1512 | B             |
+|          1699 | A             |
+|          3542 | G             |
+|          3531 | B             |
+|          1328 | Y             |
++---------------+---------------+
+10 rows in set (0.00 sec)
+
+2:
+mysql> SELECT DISTINCT teacher_id FROM course WHERE lect_hours > 3 LIMIT 10;
++------------+
+| teacher_id |
++------------+
+|        774 |
+|        667 |
+|        591 |
+|        180 |
+|        808 |
+|        924 |
+|        204 |
+|        560 |
+|        107 |
+|        957 |
++------------+
+10 rows in set (0.00 sec)
+
+3:
+mysql> SELECT course_number FROM course WHERE lab_hours < 1.5 LIMIT 10;
++---------------+
+| course_number |
++---------------+
+|          2314 |
+|          1746 |
+|          1587 |
+|          3015 |
+|          3250 |
+|          1512 |
+|          1699 |
+|          3542 |
+|          3531 |
+|          1328 |
++---------------+
+10 rows in set (0.01 sec)
+
+4:
+mysql> SELECT course_number, teacher.teacher_name FROM course INNER JOIN teacher ON course.teacher_id = teacher.teacher_id LIMIT 10;
++---------------+------------------+
+| course_number | teacher_name     |
++---------------+------------------+
+|          2781 | Enriqueta Kidner |
+|          1975 | Enriqueta Kidner |
+|          3440 | Binny Tilne      |
+|          1938 | Willette Penley  |
+|          2076 | Willette Penley  |
+|          1824 | Kasey Stenhouse  |
+|          3672 | Kasey Stenhouse  |
+|          2502 | Kasey Stenhouse  |
+|          3572 | Cassie Housegoe  |
+|          3137 | Blinnie Oggers   |
++---------------+------------------+
+10 rows in set (0.00 sec)
+
+5:
+mysql> SELECT MIN(course_number) FROM course WHERE course.lab_hours < 1.5;
++--------------------+
+| MIN(course_number) |
++--------------------+
+|               1012 |
++--------------------+
+1 row in set (0.00 sec)
+
+6:
+mysql> SELECT teacher_name FROM teacher WHERE teacher_name LIKE 'A%' LIMIT 10;
++-----------------+
+| teacher_name    |
++-----------------+
+| Alaric Mumby    |
+| Arleta Bradley  |
+| Alvina Erwin    |
+| Ardisj Billanie |
+| Ag Toopin       |
+| Aldon Baggott   |
+| Aurel Glamart   |
+| Amalie Kemmer   |
+| Augusto Joules  |
+| Ariel Trewett   |
++-----------------+
+10 rows in set (0.00 sec)
+

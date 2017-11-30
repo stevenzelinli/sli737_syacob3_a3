@@ -1,0 +1,56 @@
+FIRST:
+mysql> UPDATE teacher SET fac_id = 2 WHERE teacher_name = 'Ashton Borrell';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM teacher WHERE teacher_name = 'Ashton Borrell';
++------------+--------+----------------+
+| teacher_id | fac_id | teacher_name   |
++------------+--------+----------------+
+|        926 |      2 | Ashton Borrell |
++------------+--------+----------------+
+1 row in set (0.00 sec)
+
+SECOND:
+mysql> UPDATE teacher SET fac_id = 2 WHERE teacher_name LIKE 'A%';
+Query OK, 79 rows affected (0.05 sec)
+Rows matched: 96  Changed: 79  Warnings: 0
+
+mysql> SELECT * FROM teacher WHERE teacher_name LIKE 'A%';
++------------+--------+-----------------------+
+| teacher_id | fac_id | teacher_name          |
++------------+--------+-----------------------+
+|         13 |      2 | Alaric Mumby          |
+|         32 |      2 | Arleta Bradley        |
+|         49 |      2 | Alvina Erwin          |
+|         57 |      2 | Ardisj Billanie       |
+|         58 |      2 | Ag Toopin             |
+|         62 |      2 | Aldon Baggott         |
+|         63 |      2 | Aurel Glamart         |
+|         91 |      2 | Amalie Kemmer         |
+|        116 |      2 | Augusto Joules        |
+|        134 |      2 | Ariel Trewett         |
+|        141 |      2 | Avie Elloit           |
+|        150 |      2 | Aldrich Littlewood    |
+. . .
+
+THIRD:
+mysql> INSERT INTO faculty SELECT teacher_id, fac_id, teacher_name FROM teacher WHERE teacher_id = 10;
+Query OK, 1 row affected (0.03 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM faculty;
++--------+-------------------------------+-----------------+
+| fac_id | fac_name                      | fac_admin_email |
++--------+-------------------------------+-----------------+
+|      1 | Arts and Humanities           | bhakala@uwo.ca  |
+|      2 | Engineering                   | kchilder@uwo.ca |
+|      3 | Health Sciences               | NULL            |
+|      4 | Information and Media Studies | NULL            |
+|      5 | Law                           | NULL            |
+|      6 | Music                         | NULL            |
+|      7 | Science                       | scibmsac@uwo.ca |
+|      8 | Social Science                | ssaco@uwo.ca    |
+|     10 | 2                             | Erik Pauncefort |
++--------+-------------------------------+-----------------+
+9 rows in set (0.00 sec)
